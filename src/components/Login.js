@@ -24,7 +24,7 @@ const Login = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className='bg-green-200 text-slate-400 hover:bg-green-400 hover:text-white text-[20px] font-[700] w-[18rem] h-[45px] rounded hover:animate-grow'>
+                        <button className='bg-green-200 text-slate-400 hover:bg-green-400 hover:text-white text-[20px] font-[700] w-[18rem] h-[45px] rounded'>
                             로그인
                         </button>
                     </form>

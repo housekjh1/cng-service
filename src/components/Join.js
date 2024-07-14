@@ -4,7 +4,7 @@ import '../css/Anime.css';
 const Join = () => {
     return (
         <div className='flex justify-center'>
-            <div className='bg-white rounded shadow-[0px_0px_20px_-2px_rgba(0,0,0,0.2)] mt-[2rem] sm:mt-[4rem] w-auto sm:w-[25rem] h-[39rem] animate-slide-up'>
+            <div className='bg-white rounded shadow-[0px_0px_20px_-2px_rgba(0,0,0,0.2)] mt-[2rem] sm:mt-[4rem] w-auto sm:w-[25rem] h-[602px] animate-slide-up'>
                 <div className='flex flex-col justify-between items-center font-Pretendard'>
                     <div className='mt-[2rem] text-[40px] text-slate-500 font-[900]'>Join</div>
                     <form className='mt-[5rem] flex flex-col justify-between items-center gap-[5rem]'>
@@ -38,7 +38,7 @@ const Join = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className='bg-green-200 text-slate-400 hover:bg-green-400 hover:text-white text-[20px] font-[700] w-[18rem] h-[45px] rounded hover:animate-grow'>
+                        <button className='bg-green-200 text-slate-400 hover:bg-green-400 hover:text-white text-[20px] font-[700] w-[18rem] h-[45px] rounded relative top-[-20px]'>
                             회원가입
                         </button>
                     </form>

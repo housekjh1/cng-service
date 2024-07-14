@@ -15,10 +15,6 @@ module.exports = {
         '3xl': '1920px',
       },
       keyframes: {
-        'grow': {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.05)' },
-        },
         'pop-out-tilt': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
           '50%': { transform: 'scale(1.1) rotate(-10deg)' }, // 0.5s 동안 커지고 기울어짐
@@ -27,7 +23,6 @@ module.exports = {
         }
       },
       animation: {
-        'grow': 'grow 0.4s ease-in-out',
         'pop-out-tilt': 'pop-out-tilt 0.5s ease-in-out',
       },
     },
