@@ -1,8 +1,10 @@
 import React from 'react';
+import './css/Anime.css';
 import Nav from './components/Nav';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
+import Join from './components/Join';
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/join' element={<Join />} />
           </Routes>
         </div>
       </BrowserRouter>

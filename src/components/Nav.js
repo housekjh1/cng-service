@@ -18,7 +18,7 @@ const Nav = () => {
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-2">
                         <Link to="/login"><button className="text-[25px] text-slate-500 hover:text-blue-500">로그인</button></Link>
                         <div className="text-[25px] text-slate-500 hover:text-blue-500">/</div>
-                        <Link to="/login"><button className="text-[25px] text-slate-500 hover:text-blue-500">회원가입</button></Link>
+                        <Link to="/join"><button className="text-[25px] text-slate-500 hover:text-blue-500">회원가입</button></Link>
                     </div>
                 </div>
             </div>
