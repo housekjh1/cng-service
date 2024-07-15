@@ -15,14 +15,25 @@ module.exports = {
         '3xl': '1920px',
       },
       keyframes: {
+        'slide-up': {
+          '0%': { opacity: 0, transform: 'translateY(10%)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        'slide-up-repeat': {
+          '0%': { opacity: 0, transform: 'translateY(10%)' },
+          '10%': { opacity: 1, transform: 'translateY(0)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
         'pop-out-tilt': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
-          '50%': { transform: 'scale(1.1) rotate(-10deg)' }, // 0.5s 동안 커지고 기울어짐
-          '75%': { transform: 'scale(1.1) rotate(5deg)' },  // 0.25s 동안 우로 약간 기울임
-          '100%': { transform: 'scale(1) rotate(0deg)' } // 원래대로 복귀
-        }
+          '50%': { transform: 'scale(1.1) rotate(-10deg)' },
+          '75%': { transform: 'scale(1.1) rotate(5deg)' },
+          '100%': { transform: 'scale(1) rotate(0deg)' },
+        },
       },
       animation: {
+        'slide-up': 'slide-up 0.5s ease-out',
+        'slide-up-repeat': 'slide-up-repeat 10s ease-out infinite',
         'pop-out-tilt': 'pop-out-tilt 0.5s ease-in-out',
       },
     },

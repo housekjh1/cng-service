@@ -12,9 +12,11 @@ const KakaoMapMain = () => {
                 const mapContainer = document.getElementById('map');
                 const mapOption = {
                     center: new window.kakao.maps.LatLng(35.5446, 128.4923), // 지도의 중심좌표
-                    level: 1, // 지도의 확대 레벨
+                    level: 5, // 지도의 확대 레벨
                 };
                 const map = new window.kakao.maps.Map(mapContainer, mapOption);
+                const mapTypeControl = new window.kakao.maps.MapTypeControl();
+                map.addControl(mapTypeControl, window.kakao.maps.ControlPosition.TOPRIGHT);
 
                 const geocoder = new window.kakao.maps.services.Geocoder();
 
@@ -37,7 +39,7 @@ const KakaoMapMain = () => {
     }, []);
 
     return (
-        <div id="map" className="h-full rounded shadow-[0px_0px_10px_0px_rgba(0,0,0,0.3)]"></div>
+        <div id="map" className="w-auto h-full rounded shadow-[0px_0px_10px_0px_rgba(0,0,0,0.3)]"></div>
     );
 }
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
-        <div className='bg-white rounded p-5 text-center shadow-[0px_0px_20px_-2px_rgba(0,0,0,0.2)]'>
+        <div className='bg-white rounded p-5 mx-20 text-center shadow-[0px_0px_20px_-2px_rgba(0,0,0,0.2)]'>
             <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2 font-Ownglyph_UNZ">
                 <Link to="/">
                     <button className='flex flex-row text-slate-500 hover:text-blue-500'>
