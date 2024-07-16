@@ -19,10 +19,21 @@ const Jmt_Home = () => {
     const cardElements = cards.map((card, index) => (
         <div
             key={index}
-            className={`w-[16rem] h-[3rem] shadow-[0px_0px_20px_-4px_rgba(0,0,0,0.2)] text-slate-500 text-[18px] flex flex-row justify-start items-center animate-slide-up-repeat`}
+            className={`w-[16rem] h-[3rem] shadow-[0px_0px_20px_-4px_rgba(0,0,0,0.2)] text-slate-500 text-[18px] flex justify-start items-center animate-slide-up-repeat`}
             style={{ animationDelay: `${1 + index * 2}s` }} // 첫 시작 딜레이 설정
         >
-            <div className='pl-[2rem]'>{(index % 2 === 0) ? '🔺' : '🔻'} {index + 1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{card}</div>
+            {(index % 3 === 0) ?
+                <div className='pl-[2rem] text-red-500'>
+                    ▲
+                </div>
+                :
+                <div className='pl-[2rem] text-blue-500'>
+                    ▼
+                </div>
+            }
+            <div>
+                &nbsp;&nbsp;{index + 1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{card}
+            </div>
         </div>
     ));
 
