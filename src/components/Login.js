@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 
 const Login = () => {
@@ -30,7 +31,8 @@ const Login = () => {
         await fetch(process.env.REACT_APP_SERVER_URL + 'login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
+            credentials: 'include' // 자격 증명을 포함하여 요청을 보냅니다.
         })
             .then(resp => {
                 const jwtToken = resp.headers.get('Authorization');
@@ -44,7 +46,36 @@ const Login = () => {
             .catch(e => console.log(e));
     }
 
-    const handleOnKeyPress = (e) => {
+    // const login = async () => {
+    //     if (user.username.trim() === '' || user.password.trim() === '') {
+    //         alert("아이디 또는 비밀번호를 확인해주세요.");
+    //         return;
+    //     }
+
+    //     try {
+    //         const response = await axios.post(
+    //             process.env.REACT_APP_SERVER_URL + 'login',
+    //             user,
+    //             {
+    //                 headers: { 'Content-Type': 'application/json' },
+    //                 withCredentials: true, // 자격 증명을 포함하여 요청을 보냅니다.
+    //             }
+    //         );
+
+    //         const jwtToken = response.headers['authorization'];
+    //         if (jwtToken) {
+    //             localStorage.setItem("jwt", jwtToken);
+    //             window.location.href = '/';
+    //         } else {
+    //             alert("아이디 또는 비밀번호를 확인해주세요.");
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //         alert("로그인 중 오류가 발생했습니다.");
+    //     }
+    // };
+
+    const handleOnKeyDown = (e) => {
         if (e.key === 'Enter') {
             login();
         }
@@ -61,14 +92,14 @@ const Login = () => {
                                 <div className='text-[20px] text-center text-slate-500 w-[6rem]'>아이디</div>
                                 <div className='flex flex-row items-center'>
                                     <div className='text-[20px] text-center text-slate-500'>:&nbsp;&nbsp;&nbsp;</div>
-                                    <input ref={id} className='border-slate-200 rounded w-[10rem]' type='text' name='username' onChange={handleChange} onKeyPress={handleOnKeyPress} placeholder='아이디 입력'></input>
+                                    <input ref={id} className='border-slate-200 rounded w-[10rem]' type='text' name='username' onChange={handleChange} onKeyDown={handleOnKeyDown} placeholder='아이디 입력'></input>
                                 </div>
                             </div>
                             <div className='flex flex-row items-center pr-[1rem]'>
                                 <div className='text-[20px] text-center text-slate-500 w-[6rem]'>비밀번호</div>
                                 <div className='flex flex-row items-center'>
                                     <div className='text-[20px] text-center text-slate-500'>:&nbsp;&nbsp;&nbsp;</div>
-                                    <input className='border-slate-200 rounded w-[10rem]' type='password' name='password' onChange={handleChange} onKeyPress={handleOnKeyPress} placeholder='비밀번호 입력'></input>
+                                    <input className='border-slate-200 rounded w-[10rem]' type='password' name='password' onChange={handleChange} onKeyDown={handleOnKeyDown} placeholder='비밀번호 입력'></input>
                                 </div>
                             </div>
                         </div>
