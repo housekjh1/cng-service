@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 
 const Login = () => {
@@ -32,7 +31,6 @@ const Login = () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user),
-            credentials: 'include' // 자격 증명을 포함하여 요청을 보냅니다.
         })
             .then(resp => {
                 const jwtToken = resp.headers.get('Authorization');
@@ -45,35 +43,6 @@ const Login = () => {
             })
             .catch(e => console.log(e));
     }
-
-    // const login = async () => {
-    //     if (user.username.trim() === '' || user.password.trim() === '') {
-    //         alert("아이디 또는 비밀번호를 확인해주세요.");
-    //         return;
-    //     }
-
-    //     try {
-    //         const response = await axios.post(
-    //             process.env.REACT_APP_SERVER_URL + 'login',
-    //             user,
-    //             {
-    //                 headers: { 'Content-Type': 'application/json' },
-    //                 withCredentials: true, // 자격 증명을 포함하여 요청을 보냅니다.
-    //             }
-    //         );
-
-    //         const jwtToken = response.headers['authorization'];
-    //         if (jwtToken) {
-    //             localStorage.setItem("jwt", jwtToken);
-    //             window.location.href = '/';
-    //         } else {
-    //             alert("아이디 또는 비밀번호를 확인해주세요.");
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //         alert("로그인 중 오류가 발생했습니다.");
-    //     }
-    // };
 
     const handleOnKeyDown = (e) => {
         if (e.key === 'Enter') {

@@ -38,7 +38,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      Ownglyph_UNZ: ["Ownglyph_UNZ"],
+      Ownglyph_ryuttung: ["Ownglyph_ryuttung"],
       Pretendard: ["Pretendard"],
     },
   },
