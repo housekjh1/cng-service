@@ -60,23 +60,29 @@ const Nav = () => {
             .then(data => {
                 if (data.key === "error") localStorage.removeItem("jwt");
                 if (data.key === "error" && data.value === "tokenError") {
-                    console.log("토큰오류");
+                    alert("토큰 오류!\n다시 로그인해 주세요.");
+                    window.location.href = "/login";
+                    return;
                 } else if (data.key === "error" && data.value === "findError") {
-                    console.log("질의오류");
+                    alert("질의 오류!\n다시 로그인해 주세요.");
+                    window.location.href = "/login";
+                    return;
                 } else if (data.key === "error" && data.value === "notEnabled") {
-                    console.log("활성화오류");
                     alert("계정이 활성화되지 않았습니다.\n관리자에게 문의해 주세요.");
                     window.location.href = "/login";
+                    return;
                 } else if (data.key === "error" && data.value === "punished") {
-                    console.log("계정정지");
                     alert("정지된 계정입니다.\n관리자에게 문의해 주세요.");
                     window.location.href = "/login";
+                    return;
                 } else if (data.key === "success") {
                     setRealname(data.value);
                     setUserData(data.data);
+                    return;
                 } else {
-                    console.log("원인을 알 수 없는 에러");
-                }
+                    alert("원인을 알 수 없는 에러");
+                    return;
+                };
             })
             .catch(e => console.log(e));
     };
@@ -112,7 +118,7 @@ const Nav = () => {
         } else if ((pw1.replace(' ', '').length !== pw1.length && pw2.replace(' ', '').length !== pw2.length) || pw1.length !== pw1.trim().length || pw2.length !== pw2.trim().length) {
             alert("공백은 사용할 수 없습니다.");
         } else if (pw1.length < 8 || pw2.length < 8) {
-            alert("비밀번호는 8자리 이상으로 입력해주세요.");
+            alert("비밀번호는 8자리 이상으로 입력해 주세요.");
         } else {
             alert("비밀번호를 확인해주세요.");
         }

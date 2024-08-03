@@ -35,10 +35,40 @@ const Login = () => {
             .then(resp => {
                 const jwtToken = resp.headers.get('Authorization');
                 if (jwtToken !== null) {
-                    localStorage.setItem("jwt", jwtToken);
-                    window.location.href = '/';
+                    userCheck(jwtToken);
                 } else {
                     alert("아이디 또는 비밀번호를 확인해주세요.");
+                }
+            })
+            .catch(e => console.log(e));
+    }
+
+    const userCheck = async (jwt) => {
+        const formData = new URLSearchParams();
+        formData.append("hasToken", jwt);
+
+        await fetch(process.env.REACT_APP_SERVER_URL + "getUser", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData,
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.key === "error" && data.value === "notEnabled") {
+                    alert("계정이 활성화되지 않았습니다.\n관리자에게 문의해 주세요.");
+                    return;
+                } else if (data.key === "error" && data.value === "punished") {
+                    alert("정지된 계정입니다.\n관리자에게 문의해 주세요.");
+                    return;
+                } else if (data.key === "success") {
+                    localStorage.setItem("jwt", jwt);
+                    window.location.href = '/';
+                    return;
+                } else {
+                    alert("원인을 알 수 없는 에러.");
+                    return;
                 }
             })
             .catch(e => console.log(e));
